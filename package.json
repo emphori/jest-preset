@@ -1,6 +1,6 @@
 {
   "name": "@emphori/jest-preset",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Shareable Jest preset from Emphori",
   "keywords": [
     "emphori",
