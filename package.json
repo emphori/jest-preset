@@ -39,5 +39,8 @@
   },
   "bugs": {
     "url": "https://github.com/Emphori/jest-preset/issues"
+  },
+  "dependencies": {
+    "glob": "^7.1.4"
   }
 }
