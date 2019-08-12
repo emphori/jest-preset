@@ -1,0 +1,43 @@
+{
+  "name": "@emphori/jest-preset",
+  "version": "0.0.0",
+  "description": "Shareable Jest preset from Emphori",
+  "keywords": [
+    "emphori",
+    "jest",
+    "jest-preset",
+    "jest-config"
+  ],
+  "author": "Emphori (https://emphori.studio)",
+  "homepage": "https://github.com/Emphori/jest-preset#readme",
+  "contributors": [
+    "Iain Reid <iainreid382@gmail.com> (https://chaff.land)"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "eslintConfig": {
+    "extends": "@emphori"
+  },
+  "peerDependencies": {
+    "jest": "^24.8.0"
+  },
+  "optionalDependencies": {
+    "ts-jest": "^24.0.2"
+  },
+  "devDependencies": {
+    "@emphori/eslint-config": "^0.1.0",
+    "eslint": "^6.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emphori/jest-preset.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Emphori/jest-preset/issues"
+  }
+}
