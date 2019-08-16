@@ -3,11 +3,23 @@ language: node_js
 node_js:
   - "lts/*"
 
+before_deploy:
+  - "echo '//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}' > .npmrc"
+  - "echo '//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}' > .npmrc"
+
 deploy:
-  provider: npm
-  skip_cleanup: true
-  email: $NPM_EMAIL
-  api_key: $NPM_AUTH_TOKEN
-  on:
-    branch: master
-    tags: true
+  # Publish to https://registry.npmjs.org/
+  - provider: script
+    script: "npm publish --registry=https://registry.npmjs.org/"
+    skip_cleanup: true
+    on:
+      branch: master
+      tags: true
+
+  # Publish to https://npm.pkg.github.com/"
+  - provider: script
+    script: "npm publish --registry=https://npm.pkg.github.com/"
+    skip_cleanup: true
+    on:
+      branch: master
+      tags: true
