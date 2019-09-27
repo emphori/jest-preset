@@ -4,7 +4,7 @@ node_js:
   - "lts/*"
 
 before_deploy:
-  - "echo '//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}' > .npmrc"
+  - "echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc"
   - "echo '//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}' > .npmrc"
 
 deploy:
@@ -23,3 +23,6 @@ deploy:
     on:
       branch: master
       tags: true
+
+env:
+  - secure: HO1NDeBJ67xiuL219VfL6ySRwdDruqNoFmKcIC0dUhvE3pvXWJy4tvy1jRZtEiZe8SnohzV00qS1C6NnWRW4d9KE7Of3Sq9tdT/4VToJ9mqAxbmLyGQzvByGpXQnbe2BgVehS/6zAiDulj1uyNG9Y4c/HveHRqBAHSc+HK4M+I2E1PcsOvnVx47Hh4wNtecUG88uiFfmC5hqmc5j4/zizUuhtAVlzkVghXXtDbWb3IwfElNltq53GIC70mHoFs3/eZNI8uhTavP1zaDge++ccV9hppj8onTZyABixtUhjvvhwxIrdKAnJG774H4Y/oEeJkoMMQzhFgLFalihirFP5GPGZA3deyvvbOzrWujJS+ln1gE8wJMmWqzl1WP7M4m4/sqYMA9xqK3tPxvTrBwcyLL5xbCdes3sJOwMUFmgoYJPmEwnh9X0aaJ8bvoW+BAEEFic4QdLNClBqJfRS09jyO0f315WEqlwvEgcbD+9TrE3KhBaAWEy0MGfnZXp6LPU1t2FGu377L5/9EysMHIu4QqTXMpu7kxQTRqz0Gv8HcPfp1OOKVMjXkopIVG2CrzGCovC5lTgQBame8lV07h0Z5SdcfJG6nAxOi1HgaPfhdBOnHDyVOihdV7euAENyVXU7eXidnEFtJKKMBwSH23rTa4fXnK6v40RWWAtqvC2B3E=
