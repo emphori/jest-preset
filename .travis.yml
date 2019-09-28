@@ -16,7 +16,7 @@ deploy:
       branch: master
       tags: true
 
-  # Publish to https://npm.pkg.github.com/"
+  # Publish to https://npm.pkg.github.com/
   - provider: script
     script: "npm publish --registry=https://npm.pkg.github.com/"
     skip_cleanup: true
