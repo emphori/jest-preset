@@ -1,28 +1,28 @@
 language: node_js
 
 node_js:
-  - "lts/*"
+  - lts/*
 
 before_deploy:
-  - "echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc"
-  - "echo '//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}' > .npmrc"
+  - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+  - echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> .npmrc
 
 deploy:
   # Publish to https://registry.npmjs.org/
   - provider: script
-    script: "npm publish --registry=https://registry.npmjs.org/"
+    script: npm publish --registry=https://registry.npmjs.org/
     skip_cleanup: true
     on:
       branch: master
-      tags: true
 
   # Publish to https://npm.pkg.github.com/
   - provider: script
-    script: "npm publish --registry=https://npm.pkg.github.com/"
+    script: npm publish --registry=https://npm.pkg.github.com/
     skip_cleanup: true
     on:
       branch: master
-      tags: true
 
 env:
-  - secure: HO1NDeBJ67xiuL219VfL6ySRwdDruqNoFmKcIC0dUhvE3pvXWJy4tvy1jRZtEiZe8SnohzV00qS1C6NnWRW4d9KE7Of3Sq9tdT/4VToJ9mqAxbmLyGQzvByGpXQnbe2BgVehS/6zAiDulj1uyNG9Y4c/HveHRqBAHSc+HK4M+I2E1PcsOvnVx47Hh4wNtecUG88uiFfmC5hqmc5j4/zizUuhtAVlzkVghXXtDbWb3IwfElNltq53GIC70mHoFs3/eZNI8uhTavP1zaDge++ccV9hppj8onTZyABixtUhjvvhwxIrdKAnJG774H4Y/oEeJkoMMQzhFgLFalihirFP5GPGZA3deyvvbOzrWujJS+ln1gE8wJMmWqzl1WP7M4m4/sqYMA9xqK3tPxvTrBwcyLL5xbCdes3sJOwMUFmgoYJPmEwnh9X0aaJ8bvoW+BAEEFic4QdLNClBqJfRS09jyO0f315WEqlwvEgcbD+9TrE3KhBaAWEy0MGfnZXp6LPU1t2FGu377L5/9EysMHIu4QqTXMpu7kxQTRqz0Gv8HcPfp1OOKVMjXkopIVG2CrzGCovC5lTgQBame8lV07h0Z5SdcfJG6nAxOi1HgaPfhdBOnHDyVOihdV7euAENyVXU7eXidnEFtJKKMBwSH23rTa4fXnK6v40RWWAtqvC2B3E=
+  global:
+    - secure: HjfCi0jL3YjLSQWeXO1kpFjRPWtArBC/H0JK0zn8eqyku6Bw5QwLIra5K3oFzFpLl9eyFOZid425sH0E/8tsCn9fy8hgH+rr3Kkbm3tPENC1+xEnLiQ4cTeIPa2PU3MbWYZWckH9ILaSxp/f2WdJbmkjJHwR0Uf2AWckG6t0Hm3trH0enHCZUa2YF/PGRGPaOG2mI1RuJ5p2UF3SB7Paw6rREU2T39J5JaFLqmrm4bQ5BSqW7ncMED+Prq3V0APWc6R3dtanpSQdawYXpkquSzYztXysW6wjjKZmUgIXbLJDqTGJyqnOQy2/+SIBxD0rxG7L1PyPt/jtnFyNw4KbIzflR2mQj4aCw1U7F+FZS+zqUdLeeLN/nY9ZZ4VmP5HdV5aW6kfSL2l6nk5aPqW1DLN81HlKMn39i6nMHdB+rbQBJ13BPOm8RG5kK/GN3XjGZYmdNkkE9s1TsANGHieptf/Cd69SxqfMKC3U+VN09WUzuOKGw0myInv38/GEAo6jHki2RydpkewX3RxF8ukfpiowzZPFoWt7IaPAaUcNEnLtaynNGEVD4eYUnqmFRN+Njo7jVCitN+5hkxAs1eb7VJEQxt0dV9Ca5JkrH6geSoHMAOTQbgKY4l0c92XFWfol3pB9oxL/YS+HoavfYkLQfTo/SmITfOz2ddLJN71zRM4=
+    - secure: ccULHQioEnXksBxNyjf7D5RiT6ZeOzkd9ey54yy+DP07PUxUmmqDiBuu64sYNmpVbJSniHmIo41b5Rqk8134d0IlpcB5W23Vqe9FGXTNAvtaRcH6ud9XheaU4bdoSfD3UWzlfMnczPFhLYfS6p8d99H6qtqqMeZx4q6bqktUz43hb3CmsLoypgvjwYl8NZ50A3gLaRB1j4pm6LN+M2rNppY/m42GNaybsaH4KSRRKIDca8Fig3GS9kaa8FKrUuCbP4KIm7BsF6tSgxehKIVjldkRzmUvJTyqiEDzD7+lrBLi6FYxoVzG3TqnEulNibhWNPb0MUsUWOXROW9lFL/adpSzM2y5ki7pI+F6SYtIVU8SwXBQCbzSeMp8y1bc1b5zeSaB3TCnc5ff4XkgKsjHSToxRCKCEd/5KKzhbX3/HrW4HD1wpquaV8DBARhGg2znWGWqTN2iDgzPMLNMTE9CuhIZsTisFbn3STBrRfOdfi23KxNdTnnFEC0gaavIdOz+jajlXRThBZ6h18kNNH957cnwScvX/ZHs1UOiyYGwNwXPBC/j0uBq7+LUWHcvh6K8idMeiWtu33+aNaLyJAXim1ZV1cuqXGU4t8AYeQ2EbIrzBUuBgfqk3WbA9t0WVxfqrIMne7fgN6vKveLDQMhGXGBxwbonDEAsB5pNDTQKOSM=
