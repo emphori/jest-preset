@@ -41,7 +41,8 @@ module.exports = {
         'ts-jest': {
           'diagnostics': {
             'ignoreCodes': [
-              'TS151001'
+              'TS151001',
+              'TS2497'
             ]
           }
         }
